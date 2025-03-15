@@ -1,7 +1,7 @@
 import * as authData from "../data/auth.js"
 
 // 유저 로그인
-export async function login(req, res) {
+export async function login(req, res, next) {
   try {
     const { username, password } = req.body;
 
@@ -27,9 +27,6 @@ export async function login(req, res) {
       data: { username: user.username },
     });
   } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "서버 오류가 발생했습니다",
-    });
+    next(error);
   }
 }

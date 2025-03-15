@@ -2,7 +2,9 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./config/database.js";
 import { config } from "./config/config.js";
+import errorHandler from "./middlewares/errorHandler.js";
 import authRouter from "./routes/auth.js";
+import feedRouter from "./routes/feeds.js";
 
 const app = express();
 
@@ -16,11 +18,10 @@ app.get("/test", (req, res) => {
 
 // 라우터
 app.use("/auth", authRouter);
+app.use("/feeds", feedRouter);
 
-// 404
-app.use((req, res) => {
-  res.sendStatus(404);
-});
+// 에러
+app.use(errorHandler);
 
 const port = config.hosting.back_port;
 
