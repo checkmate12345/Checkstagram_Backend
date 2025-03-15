@@ -5,6 +5,7 @@ import { config } from "./config/config.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import authRouter from "./routes/auth.js";
 import feedRouter from "./routes/feeds.js";
+import userRouter from "./routes/user.js";
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get("/test", (req, res) => {
 // 라우터
 app.use("/auth", authRouter);
 app.use("/feeds", feedRouter);
+app.use("/user", userRouter);
 
 // 에러
 app.use(errorHandler);
