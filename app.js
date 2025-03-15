@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connectDB } from "./config/database.js";
 import { config } from "./config/config.js";
+import authRouter from "./routes/auth.js";
 
 const app = express();
 
@@ -12,6 +13,9 @@ app.use(express.json());
 app.get("/test", (req, res) => {
   res.json({ message: "was 연결 테스트 성공" });
 });
+
+// 라우터
+app.use("/auth", authRouter);
 
 // 404
 app.use((req, res) => {
