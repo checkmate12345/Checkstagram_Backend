@@ -13,3 +13,13 @@ export async function getFeeds() {
     next(error);
   }
 }
+
+// 피드 저장
+export async function createFeed(feedData) {
+  try {
+    const newFeed = new Feed(feedData);
+    return await newFeed.save();
+  } catch (error) {
+    throw error;
+  }
+}
