@@ -9,8 +9,8 @@ const feedSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   medias: { type: [mediaSchema], required: true },
   description: { type: String, default: null },
-  likes: { type: Number, default: 0 },
-  comments: { type: Number, default: 0 }
+  likes: { type: String, default: null },
+  comments: { type: String, default: null }
 }, { 
   timestamps: true,
   versionKey: false
