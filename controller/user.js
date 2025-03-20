@@ -27,7 +27,7 @@ export const getCheckSettings = async (req, res, next) => {
 export const setCheckSettings = async (req, res, next) => {
   try {
     const { username } = req.params;
-    const { risk, brand, it, foodDrink } = req.body;
+    const { risk, brand, it, coke } = req.body;
 
     if (!req.body || Object.keys(req.body).length === 0) {
       return res.status(400).json({
@@ -40,7 +40,7 @@ export const setCheckSettings = async (req, res, next) => {
       risk,
       brand,
       it,
-      foodDrink
+      coke
     });
 
     if (!updatedUser) {
